@@ -1,0 +1,13 @@
+#!/usr/bin/php
+<?php
+    function bcrypt_hash($plaintext) {
+        $hash = password_hash($plaintext, PASSWORD_BCRYPT);
+        return $hash;
+    }
+
+    if ($argc < 2) {
+        echo '@usage: bcrypt-hash <plaintext>';
+    } else {
+        echo bcrypt_hash($argv[1]);
+    }
+?>
