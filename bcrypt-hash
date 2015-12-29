@@ -39,7 +39,7 @@ function bcrypt_hash($plaintext, $cost) {
 }
 
 # docopt argument processing
-require('docopt.php');
+require('docopt/src/docopt.php');
 $args = Docopt::handle($doc, array('version'=>'bcrypt-hash 0.1.0'));
 
 $cost =  $args['-c'];
