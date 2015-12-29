@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 $doc = <<<DOC
-Generate or verify secure cryptographic hashes using bcrypt.
+Generate and verify secure cryptographic hashes using bcrypt.
 
 Usage:
     bcrypt-hash [-c <cost>] <plaintext>
@@ -47,7 +47,7 @@ function bcrypt_verify($plaintext, $hash) {
 
 # docopt argument processing
 require('docopt.php');
-$args = Docopt::handle($doc, array('version'=>'bcrypt-hash 1.1.0'));
+$args = Docopt::handle($doc, array('version'=>'bcrypt-hash 1.2.0'));
 
 # Grab arguments
 $cost =  $args['-c'];

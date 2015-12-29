@@ -1,4 +1,4 @@
-# Generate or verify secure cryptographic hashes from the command-line using `bcrypt`
+# Generate and verify secure cryptographic hashes from the command-line using `bcrypt`
 
 `bcrypt-hash` generates a secure cryptographic hash using the PHP 5.5 `password_hash` function by specifying `bcrypt` as the algorithm.
 
