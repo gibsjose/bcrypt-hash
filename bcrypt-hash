@@ -46,7 +46,7 @@ function bcrypt_verify($plaintext, $hash) {
 }
 
 # docopt argument processing
-require('docopt/src/docopt.php');
+require('docopt.php');
 $args = Docopt::handle($doc, array('version'=>'bcrypt-hash 1.1.0'));
 
 # Grab arguments
