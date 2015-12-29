@@ -7,6 +7,16 @@ This was written as a command-line utility to experiment with generating `bcrypt
 ## Compatibility
 This utility will only work with PHP 5.5+. See the comment [here](http://stackoverflow.com/a/17073604) for options in regards to using older versions of PHP.
 
+## Installation
+
+Use `homebrew`:
+```bash
+brew tap gibsjose/crypto
+brew install bcrypt-hash
+```
+
+Or install manually.
+
 ## Usage
 ```bash
 # Example: Hash the plaintext 't3rr1bl3_p4$$w0rd' with a cost factor of 12
