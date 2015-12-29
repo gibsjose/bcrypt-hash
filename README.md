@@ -1,6 +1,6 @@
 # Generate secure cryptographic hashes from the command-line using `bcrypt`
 
-`bcrypt-hash` generates a secure cryptographic hash using the PHP5.5 `password_hash` function by specifying `bcrypt` as the algorithm.
+`bcrypt-hash` generates a secure cryptographic hash using the PHP 5.5 `password_hash` function by specifying `bcrypt` as the algorithm.
 
 This was written as a command-line utility to experiment with generating `bcrypt` hashes in a similar way that is possible with the SHA family by using the `shasum` or `md5` utilities.
 
