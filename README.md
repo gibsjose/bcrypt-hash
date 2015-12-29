@@ -23,7 +23,7 @@ Verified
 
 # Example: Check the plaintext 'test' against an incorrect hash
 bcrypt-hash check 'test' '$2y$10$8zcwWCamJ3a.w.D3Y82cWOfyeQygxG9HHBCOpXy7w18I2cbsN9IC2'
-Verified
+No match
 
 # Example: Show the help
 bcrypt-hash -h
