@@ -1,17 +1,19 @@
 #!/usr/bin/php
 <?php
 $doc = <<<DOC
-Generate secure cryptographic hashes using bcrypt.
+Generate or verify secure cryptographic hashes using bcrypt.
 
 Usage:
     bcrypt-hash [-c <cost>] <plaintext>
+    bcrypt-hash check <plaintext> <hash>
     bcrypt-hash (-h | --help)
     bcrypt-hash (-v | --version)
 
 Options:
-    -h --help       Show this screen.
-    -v --version    Show version.
-    -c <cost>       bcrypt cost parameter [default: 10].
+    -h --help                   Show this screen.
+    -v --version                Show version.
+    -c <cost>                   bcrypt cost parameter [default: 10].
+    check <plaintext> <hash>    Check the plaintext against the given hash
 
 DOC;
 
@@ -38,14 +40,32 @@ function bcrypt_hash($plaintext, $cost) {
     return $hash;
 }
 
+# Verify the plaintext against a given hash
+function bcrypt_verify($plaintext, $hash) {
+    return password_verify($plaintext, $hash);
+}
+
 # docopt argument processing
 require('docopt/src/docopt.php');
-$args = Docopt::handle($doc, array('version'=>'bcrypt-hash 1.0.0'));
+$args = Docopt::handle($doc, array('version'=>'bcrypt-hash 1.1.0'));
 
+# Grab arguments
 $cost =  $args['-c'];
 $plaintext = $args['<plaintext>'];
+$hash = $args['<hash>'];
+$check = $args['check'];
 
-$hash = bcrypt_hash($plaintext, $cost);
+# Check the plaintext against a given hash
+if ($check) {
+    if(bcrypt_verify($plaintext, $hash)) {
+        echo 'Verified'.PHP_EOL;
+    } else {
+        echo 'No match'.PHP_EOL;
+    }
+}
 
-echo $hash;
+# Generate a hash for the plaintext
+else {
+    echo bcrypt_hash($plaintext, $cost).PHP_EOL;
+}
 ?>

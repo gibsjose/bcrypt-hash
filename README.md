@@ -1,4 +1,4 @@
-# Generate secure cryptographic hashes from the command-line using `bcrypt`
+# Generate or verify secure cryptographic hashes from the command-line using `bcrypt`
 
 `bcrypt-hash` generates a secure cryptographic hash using the PHP 5.5 `password_hash` function by specifying `bcrypt` as the algorithm.
 
@@ -17,6 +17,14 @@ $2y$12$UzKl7mitlZJt52PAMemYmeb9YUC9XhvX6DlbtbaVtdqI32TCPPCj6
 bcrypt-hash 'Look! Here is some plaintext...'
 $2y$10$k8pe9htFbLrJD/EjOE3In.RPOFpPz2WZ44lwQVt8RJRmUgXNnfnSC
 
+# Example: Check the plaintext 'test' against a correct hash
+bcrypt-hash check 'test' '$2y$10$5ixGI4bAKbWI4bdlzbXi9uqaOrysHRuqbBLP4N8HhgPL6c5yIuS2a'
+Verified
+
+# Example: Check the plaintext 'test' against an incorrect hash
+bcrypt-hash check 'test' '$2y$10$8zcwWCamJ3a.w.D3Y82cWOfyeQygxG9HHBCOpXy7w18I2cbsN9IC2'
+Verified
+
 # Example: Show the help
 bcrypt-hash -h
 
@@ -32,7 +40,7 @@ The cost factor indicates the number of expansion rounds performed during the ma
 number of rounds = 2^cost
 ```
 
-Currently, a cost factor of 12 or 13 (4096 or 8192 rounds) is recommended as a good balance between the responsiveness
+Currently, a cost factor of 12 or 13 (4096 or 8192 rounds) is recommended as a good balance between responsiveness and security.
 
 ## `bcrypt` Hash Format
 A `bcrypt` hash follows the following standard format:
